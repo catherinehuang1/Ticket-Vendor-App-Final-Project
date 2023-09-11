@@ -1,0 +1,139 @@
+version: "3.7"
+services:
+  confirm-order-db:
+    build: confirm-order-db
+    ports:
+      - "50000:27017"
+  confirm-user-id-db:
+    build: confirm-user-id-db
+    ports:
+      - "50001:27017"
+  create-card-db:
+    build: create-card-db
+    ports:
+      - "50002:27017"
+  create-user-db:
+    build: create-user-db
+    ports:
+      - "50003:27017"
+  seats-db:
+    build: seats-db
+    ports:
+      - "50004:27017"
+  timers-db:
+    build: timers-db
+    ports:
+      - "50005:27017"
+  email-user-id-db:
+    build: email-user-id-db
+    ports:
+      - "50006:27017"
+  confirm-card-db:
+    build: confirm-card-db
+    ports:
+      - "50007:27017"
+  email-order-db:
+    build: email-order-db
+    ports:
+      - "50008:27017"
+  client:
+    build: client
+    ports:
+      - "3000:3000"
+  event-bus:
+    build: event-bus
+  create-user:
+    build: create-user
+    depends_on:
+      - create-user-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: create-user-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+    ports:
+      - "4000:4000"
+  confirm-user-id:
+    build: confirm-user-id
+    depends_on:
+      - confirm-user-id-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: confirm-user-id-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+    ports:
+      - "4001:4001"
+  seats:
+    build: seats
+    depends_on:
+      - seats-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: seats-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+    ports:
+      - "4002:4002"
+  create-card:
+    build: create-card
+    depends_on:
+      - create-card-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: create-card-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+    ports:
+      - "4003:4003"
+  confirm-order:
+    build: confirm-order
+    depends_on:
+      - confirm-order-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: confirm-order-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+    ports:
+      - "4004:4004"
+  debug:
+    build: debug
+    depends_on:
+      - event-bus
+    environment:
+      WAIT_HOSTS: event-bus:9092
+      WAIT_TIMEOUT: 120
+    ports:
+      - "4005:4005"
+  confirm-card:
+    build: confirm-card
+    depends_on:
+      - confirm-card-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: confirm-card-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+  email-order:
+    build: email-order
+    depends_on:
+      - email-order-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: email-order-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+      EMAIL_ADDRESS: cachemoneygirliezz@gmail.com
+      EMAIL_PASSWORD: eylgapwxtyrtevzy
+  email-user-id:
+    build: email-user-id
+    depends_on:
+      - email-user-id-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: email-user-id-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120
+      EMAIL_ADDRESS: cachemoneygirliezz@gmail.com
+      EMAIL_PASSWORD: eylgapwxtyrtevzy
+  timers:
+    build: timers
+    depends_on:
+      - timers-db
+      - event-bus
+    environment:
+      WAIT_HOSTS: timers-db:27017, event-bus:9092
+      WAIT_TIMEOUT: 120

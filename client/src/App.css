@@ -1,0 +1,75 @@
+/* .App {
+    background-color: white;
+  } */
+
+.Acco-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Acco-form {
+    width: 420px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.Acco-form-content {
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.Acco-form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 24px;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+}
+
+.Acco-form-instructions {
+    font-size: 12px;
+    padding-top: 5px;
+    color: navy;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+}
+
+.Acco-button-container {
+    width: 300px;
+    margin: 0 auto;
+    display: inline;
+    /* -block; */
+    /* padding: 5px; */
+}
+
+.Acco-button-submit {
+    margin-right: 10px;
+}
+
+.Acco-buttons {
+    width: 145px;
+    display: inline;
+    margin-top: 1rem;
+}
+
+.required:after {
+    content: ' *';
+    color: red;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}

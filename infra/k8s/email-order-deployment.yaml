@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../../docker-compose.yml
+    kompose.version: 1.27.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: email-order
+  name: email-order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: email-order
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f ../../docker-compose.yml
+        kompose.version: 1.27.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: email-order
+    spec:
+      containers:
+        - env:
+            - name: EMAIL_ADDRESS
+              value: cachemoneygirliezz@gmail.com
+            - name: EMAIL_PASSWORD
+              value: eylgapwxtyrtevzy
+            - name: WAIT_HOSTS
+              value: email-order-db:27017, event-bus:9092
+            - name: WAIT_TIMEOUT
+              value: "120"
+          image: email-order
+          name: email-order
+          resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "761e55cd-ccde-4100-9d59-c90ce3f98c38",
+		"name": "girliezz_events",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20391459"
+	},
+	"item": [
+		{
+			"name": "UserCreated",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"UserCreated\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\",\n        \"full_name\": \"Seth Franklin\",\n        \"email_address\": \"sjfranklin@umass.edu\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserConfirmed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"UserConfirmed\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\",\n        \"full_name\": \"Seth Franklin\",\n        \"email_address\": \"sjfranklin@umass.edu\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SeatsSelected",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"SeatsSelected\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\",\n        \"seats\": [\n            {\n                \"row\": 5,\n                \"column\": 3\n            },\n            {\n                \"row\": 5,\n                \"column\": 4\n            },\n            {\n                \"row\": 5,\n                \"column\": 5\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TimerExpired",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"TimerExpired\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CardCreated",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"CardCreated\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\",\n        \"card_number\": \"1234567890123456\",\n        \"billing_address\": \"181 Presidents Drive, Amherst MA, 01003\",\n        \"expiration_date\": \"01/01\",\n        \"cvv\": \"123\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CardAccepted",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"CardAccepted\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CardDenied",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"CardDenied\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderConfirmed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_type\": \"OrderConfirmed\",\n    \"event_data\": {\n        \"user_id\": \"d5b7ce\",\n        \"full_name\": \"Seth Franklin\",\n        \"email_address\": \"sjfranklin@umass.edu\",\n        \"order_status\": \"accepted\",\n        \"seats\": [\n            {\n                \"row\": 5,\n                \"column\": 3\n            },\n            {\n                \"row\": 5,\n                \"column\": 4\n            },\n            {\n                \"row\": 5,\n                \"column\": 5\n            }\n        ],\n        \"card_info\": {\n            \"card_number\": \"1234567890123456\",\n            \"billing_address\": \"181 Presidents Drive, Amherst MA, 01003\",\n            \"expiration_date\": \"01/01\",\n            \"cvv\": \"123\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_name}}/debug/emit-event",
+					"host": [
+						"{{host_name}}"
+					],
+					"path": [
+						"debug",
+						"emit-event"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_name",
+			"value": "localhost:4005",
+			"type": "string"
+		}
+	]
+}

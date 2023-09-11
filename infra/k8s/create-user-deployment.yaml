@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../../docker-compose.yml
+    kompose.version: 1.27.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: create-user
+  name: create-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: create-user
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f ../../docker-compose.yml
+        kompose.version: 1.27.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: create-user
+    spec:
+      containers:
+        - env:
+            - name: WAIT_HOSTS
+              value: create-user-db:27017, event-bus:9092
+            - name: WAIT_TIMEOUT
+              value: "120"
+          image: create-user
+          name: create-user
+          ports:
+            - containerPort: 4000
+          resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../../docker-compose.yml
+    kompose.version: 1.27.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: event-bus
+  name: event-bus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: event-bus
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f ../../docker-compose.yml
+        kompose.version: 1.27.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: event-bus
+    spec:
+      containers:
+        - image: event-bus
+          name: event-bus
+          resources: {}
+      restartPolicy: Always
+status: {}
